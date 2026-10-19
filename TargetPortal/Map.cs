@@ -466,7 +466,7 @@ public static class Map
 				yield return null;
 				while (true)
 				{
-					if (shouldPortalsBeVisible && !Teleporting)
+					if (shouldPortalsBeVisible && !Teleporting && Player.m_localPlayer)
 					{
 						AddPortalPins();
 					}
@@ -497,6 +497,9 @@ public static class Map
 			rect.sizeDelta = new Vector2(200, 500);
 			rect.pivot = new Vector2(0, 0.5f);
 			favoriteList.AddComponent<VerticalLayoutGroup>().childForceExpandHeight = false;
+
+			// Minimap.Awake means a fresh map: the pins the old one tracked are gone with it.
+			activePins.Clear();
 
 			// The map shows one hint bar per input mode and UIInputHint switches between them, so the
 			// portal hints have to exist in both gamepad bars to follow whichever one is live. The
