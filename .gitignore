@@ -4,3 +4,8 @@ obj
 TargetPortal.sln.DotSettings.user
 .idea
 .vs
+
+# local build tooling (tools/setup.sh) and output (tools/build.sh)
+/.tools
+/dist
+/tools/local.env
